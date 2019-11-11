@@ -59,7 +59,7 @@ def get_commands(action_graph, execution_root):
 def main():
     target = sys.argv[1]
 
-    execution_root = str(subprocess.check_output(['bazel', 'info', 'execution_root'])).strip()
+    execution_root = str(subprocess.check_output(['bazel', 'info', 'execution_root'], encoding='utf-8')).strip()
     command = ['bazel', 'aquery', '--output=proto', '--compiler=clang-cl', 'mnemonic("CppCompile", deps(%s))' % target]
     result = subprocess.check_output(command)
     action_graph = analysis.ActionGraphContainer()
