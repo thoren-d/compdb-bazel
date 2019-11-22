@@ -55,7 +55,7 @@ def get_header_command(command_info):
     if cc_file.endswith('.cc'):
         header_file = cc_file.replace('.cc', '.h')
     elif cc_file.endswith('.cpp'):
-        header_file = cc_file.replace('.hpp')
+        header_file = cc_file.replace('.cpp', '.hpp')
     if not os.path.exists(header_file):
         return None
 
